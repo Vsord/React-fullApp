@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+    color: aqua;;
+}
+
+a:hover {
+    color: blue;
+}
+
+.sidebar_block {
+    background: linear-gradient(#141e30, #243b55);
+    width: 15%;
+    height: 365px;
+
+    .sidebar_block__inner {
+        padding: 30px;
+
+        .sidebar_dashboard {
+            padding: 10px;
+        }
+
+        .sidebar_table {
+            padding: 10px;
+        }
+    }
+
+}
