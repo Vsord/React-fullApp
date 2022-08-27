@@ -9,11 +9,12 @@ a:hover {
 
 .sidebar_block {
     background: linear-gradient(#141e30, #243b55);
-    width: 15%;
+    width: 16%;
     height: 365px;
+    text-align: center;
 
     .sidebar_block__inner {
-        padding: 30px;
+        margin-top: 50px;
 
         .sidebar_dashboard {
             padding: 10px;
