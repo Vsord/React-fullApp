@@ -6,41 +6,37 @@ input:focus ~ label {
     font-size: 15px;
 }
 
-.form_email_error {
+.form_email_error,
+.form_password_error,
+.form_password_confirmation_error {
     color: red;
     position: absolute;
     bottom: 30px;
-    left: 167px;
+    left: 265px;
 }
 
-.form_password_error {
+.form_password_confirmation {
     color: red;
     position: absolute;
-    bottom: 30px;
-    left: 168px;
 }
 
 .form_block {
     background: linear-gradient(#141e30, #243b55);
     margin: 0 auto;
     width: 24%;
-    height: 287px;
+    height: 317px;
     text-align: center;
     border-radius: 15px;
+    position: relative;
 
     .form_email,
-    .form_password {
+    .form_password,
+    .form_password_confirmation {
         position: relative;
     }
 
-
-    .form_email,
-    .form_password {
-        margin-top: 50px;
-    }
-
     .form_button {
-        margin-top: 40px;
+        margin-top: 50px;
         width: 95px;
         height: 30px;
         border-radius: 6px;
@@ -58,7 +54,7 @@ input:focus ~ label {
         color: #fff;
         font-size: 16px;
         left: 75px;
-        top: -22px;
+        top: 22px;
         z-index: 1000000;
     }
 
@@ -71,6 +67,17 @@ input:focus ~ label {
         color: #fff;
         outline: none;
         font-size: 17px;
+        margin-top: 45px;
     }
 
 }
+
+.form_signUp_block{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form_signUp_block button {
+    width: 24%;
+}
+

@@ -57,6 +57,7 @@
     "node-sass": "^7.0.1",
     "prettier": "^2.7.1",
     "react-router-dom": "^6.3.0",
+    "ts-migrate": "^0.1.32",
     "yup": "^0.32.11"
   }
 }

@@ -4,14 +4,18 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
 import TableContent from "./components/TableContent/TableContent";
-import Form from "./components/Form/Form";
+import NotFound from "./components/NotFound/NotFound";
+import SignUp from "./components/SignUp/SignUp";
+import LogIn from "./components/LogIn/LogIn";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className={styles.App}>
         <Routes>
-          <Route path="/login" element={<Form />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Sidebar />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/table" element={<TableContent />} />

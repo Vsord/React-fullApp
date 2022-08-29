@@ -7,12 +7,13 @@ const Sidebar = () => {
     <>
       <div className={styles.sidebar_block}>
         <div className={styles.sidebar_block__inner}>
-          <div className={styles.sidebar_dashboard}>
+          <ul>
             <NavLink to="/dashboard">Dashboard</NavLink>
-          </div>
-          <div className={styles.sidebar_table}>
             <NavLink to="/table">Table</NavLink>
-          </div>
+            <NavLink to="/sport">Sport</NavLink>
+            <NavLink to="/news">News</NavLink>
+            <NavLink to="/settings">Settings</NavLink>
+          </ul>
         </div>
       </div>
       <Outlet />
