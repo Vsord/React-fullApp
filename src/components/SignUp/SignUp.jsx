@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SignUp.module.scss";
 import Form from "../Form/Form";
 
-const SignUp = (props) => {
+const SignUp = () => {
   return (
     <div>
       <h1>Sign Up Form</h1>

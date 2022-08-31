@@ -1,30 +1,41 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import styles from "./Form.module.scss";
 import { useFormik } from "formik";
 import { NavLink } from "react-router-dom";
-import schema from "../../schema/validationSchema";
 import Button from "@mui/material/Button";
-import { boolean } from "yup/lib/locale";
+import * as yup from "yup";
 
 const Form = (props) => {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState(() => {
+    const localData = localStorage.getItem("formData");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      ...(props.isSignUp ? { passwordConfirmation: "" } : null),
+      ...(props.isSignUp ? { passwordConfirmation: "" } : {}),
     },
     onSubmit: (values) => {
       console.log(values);
-      setFormData(JSON.stringify(values));
+      setFormData(values);
     },
-    validationSchema: schema,
+    validationSchema: yup.object().shape({
+      email: yup.string().email("Invalid email").required("Required"),
+      password: yup.string().min(6, "Too short").required("Required"),
+      passwordConfirmation: props.isSignUp
+        ? yup
+            .string()
+            .oneOf([yup.ref("password"), null], "Passwords must match")
+            .required("Required")
+        : null,
+    }),
   });
-
-  Form.propTypes = {
-    isSignUp: boolean,
-  };
-
   return (
     <>
       <form className={styles.form_block} onSubmit={formik.handleSubmit}>
