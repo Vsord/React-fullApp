@@ -1,19 +1,18 @@
-import { React, useState, useEffect } from "react";
-import styles from "./Form.module.scss";
-import { useFormik } from "formik";
+import { React, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
 import Button from "@mui/material/Button";
 import * as yup from "yup";
+import styles from "./Form.module.scss";
 
 const Form = (props) => {
-  const [formData, setFormData] = useState(() => {
-    const localData = localStorage.getItem("formData");
-    return localData ? JSON.parse(localData) : [];
-  });
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData]);
+    // dispatch(signUpThunk());
+    // dispatch(logInThunk());
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -23,7 +22,6 @@ const Form = (props) => {
     },
     onSubmit: (values) => {
       console.log(values);
-      setFormData(values);
     },
     validationSchema: yup.object().shape({
       email: yup.string().email("Invalid email").required("Required"),
@@ -35,6 +33,7 @@ const Form = (props) => {
             .required("Required")
         : null,
     }),
+    enableReinitialize: true,
   });
   return (
     <>
@@ -85,21 +84,19 @@ const Form = (props) => {
             <label htmlFor="passwordConfirmation">Confirm your password</label>
           </div>
         )}
-        <NavLink to="/">
-          <button
-            className={styles.form_button}
-            type="submit"
-            disabled={
-              props.isSignUp
-                ? formik.errors.email ||
-                  formik.errors.password ||
-                  formik.errors.passwordConfirmation
-                : formik.errors.email || formik.errors.password
-            }
-          >
-            Log In
-          </button>
-        </NavLink>
+        {/* <NavLink to="/"> */}
+        <button
+          className={styles.form_button}
+          type="submit"
+          disabled={
+            props.isSignUp
+              ? formik.errors.email || formik.errors.password || formik.errors.passwordConfirmation
+              : formik.errors.email || formik.errors.password
+          }
+        >
+          Log In
+        </button>
+        {/* </NavLink> */}
       </form>
       <div className={styles.form_signUp_block}>
         <NavLink to={props.isSignUp ? "/login" : "/signup"}>

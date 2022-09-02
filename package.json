@@ -45,6 +45,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/material": "^5.10.2",
+    "@redux-devtools/core": "^3.13.1",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
     "eslint": "^8.22.0",
@@ -56,7 +57,11 @@
     "formik": "^2.2.9",
     "node-sass": "^7.0.1",
     "prettier": "^2.7.1",
+    "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
     "ts-migrate": "^0.1.32",
     "yup": "^0.32.11"
   }

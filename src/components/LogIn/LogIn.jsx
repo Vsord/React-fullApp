@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./LogIn.module.scss";
 import Form from "../Form/Form";
+import styles from "./LogIn.module.scss";
 
 const LogIn = () => {
   return (
     <div>
-      <h1>Log In Form</h1>
+      <h1 className={styles.logIn_title}>Log In Form</h1>
       <Form />
     </div>
   );
