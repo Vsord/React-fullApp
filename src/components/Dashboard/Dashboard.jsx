@@ -1,19 +1,27 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import styles from "./Dashboard.module.scss";
+import { createUseStyles } from "react-jss";
 
-const bull = (
-  <Box component="span" sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}></Box>
-);
+const useStyles = createUseStyles({
+  dashboardBlock: {
+    margin: {
+      top: 0,
+      bottom: 0,
+      right: "auto",
+      left: "auto",
+    },
+    width: 253,
+  },
+});
 
 const Dashboard = () => {
+  const classes = useStyles();
   return (
-    <div className={styles.dashboard_block}>
+    <div className={classes.dashboardBlock}>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

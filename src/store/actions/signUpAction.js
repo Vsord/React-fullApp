@@ -1,24 +1,29 @@
 export const SIGNUP_USER_PENDING = "SIGNUP_USER_PENDING";
 export const SIGNUP_USER_SUCCESS = "SIGNUP_USER_SUCCESS";
-export const SIGNUP_USER_FAILURE = "CONFIRM_PASSWORD";
+export const SIGNUP_USER_FAILURE = "SIGNUP_USER_FAILURE";
+export const CLEAR_SIGNUP_STATE = "CLEAR_SIGNUP_STATE";
 
-export const signUpUserPending = (loading) => {
+export const signUpUserPending = () => {
   return {
     type: SIGNUP_USER_PENDING,
-    payload: loading,
   };
 };
 
-export const signUpUserSuccess = (data) => {
+export const signUpUserSuccess = () => {
   return {
     type: SIGNUP_USER_SUCCESS,
-    payload: data,
   };
 };
 
 export const signUpUserFailure = (error) => {
   return {
     type: SIGNUP_USER_FAILURE,
-    payload: error,
+    error,
+  };
+};
+
+export const clearSignUpState = () => {
+  return {
+    type: CLEAR_SIGNUP_STATE,
   };
 };

@@ -5,8 +5,8 @@ import { NavLink, Outlet } from "react-router-dom";
 const Sidebar = () => {
   return (
     <>
-      <div className={styles.sidebar_block}>
-        <div className={styles.sidebar_block__inner}>
+      <div className={styles.sidebarBlock}>
+        <div className={styles.sidebarBlockInner}>
           <ul>
             <NavLink to="/dashboard">Dashboard</NavLink>
             <NavLink to="/table">Table</NavLink>
