@@ -7,6 +7,7 @@ import TableContent from "./components/TableContent/TableContent";
 import NotFound from "./components/NotFound/NotFound";
 import SignUp from "./components/SignUp/SignUp";
 import LogIn from "./components/LogIn/LogIn";
+import PrivateRoute from "./utils/PrivateRoute";
 
 const App = () => {
   return (
@@ -16,8 +17,10 @@ const App = () => {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Sidebar />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/table" element={<TableContent />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/table" element={<TableContent />} />
+            </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
