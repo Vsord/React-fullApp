@@ -1,5 +1,5 @@
 import { React, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { schema } from "../../validationSchema/validationSchema";
@@ -99,9 +99,12 @@ const Form = (props) => {
         {error ? <div className={styles.formUserErrorMessage}>{error}</div> : null}
       </form>
       <div className={styles.formSignUpBlock}>
-        <NavLink to={isSignUp ? "/login" : "/signup"}>
-          <Button variant="contained">{isSignUp ? "LogIn" : "Register"}</Button>
-        </NavLink>
+        <Button
+          variant="contained"
+          onClick={() => (isSignUp ? navigate("/login") : navigate("/signup"))}
+        >
+          {isSignUp ? "LogIn" : "Register"}
+        </Button>
       </div>
     </>
   );
