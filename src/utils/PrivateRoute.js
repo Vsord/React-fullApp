@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 
 const PrivateRoute = () => {
-  let authPermission = localStorage.getItem("isAuthorized", "false");
+  let authPermission = localStorage.getItem("isAuthorized", "true");
   return authPermission ? <Outlet /> : <Navigate to="/login" />;
 };
 
