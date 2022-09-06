@@ -37,9 +37,9 @@ const Form = (props) => {
     <>
       <form className={styles.formBlock} onSubmit={formik.handleSubmit}>
         <div className={styles.formEmail}>
-          {formik.errors.email ? (
+          {formik.errors.email && formik.touched.email && (
             <div className={styles.formEmailError}>{formik.errors.email}</div>
-          ) : null}
+          )}
           <input
             id="email"
             name="email"
@@ -47,13 +47,14 @@ const Form = (props) => {
             autoComplete="off"
             value={formik.values.email}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
           <label htmlFor="email">Email</label>
         </div>
         <div className={styles.formPassword}>
-          {formik.errors.password ? (
+          {formik.errors.password && formik.touched.password && (
             <div className={styles.formPasswordError}>{formik.errors.password}</div>
-          ) : null}
+          )}
           <input
             id="password"
             type="password"
@@ -61,16 +62,17 @@ const Form = (props) => {
             autoComplete="off"
             value={formik.values.password}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
           <label htmlFor="password">Password</label>
         </div>
         {isSignUp && (
           <div className={styles.formPasswordConfirmation}>
-            {formik.errors.passwordConfirmation ? (
+            {formik.errors.passwordConfirmation && formik.touched.passwordConfirmation && (
               <div className={styles.formPasswordConfirmationError}>
                 {formik.errors.passwordConfirmation}
               </div>
-            ) : null}
+            )}
             <input
               id="passwordConfirmation"
               type="password"
@@ -78,6 +80,7 @@ const Form = (props) => {
               autoComplete="off"
               value={formik.values.passwordConfirmation}
               onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
             <label htmlFor="passwordConfirmation">Confirm your password</label>
           </div>

@@ -19,7 +19,10 @@ export async function registerUser({ email, password }) {
 
 export async function loginUser(user) {
   const registeredUser = await getUser(user.email);
-  if (registeredUser.password === user.password) {
+  if (!registeredUser) {
+    throw Error("User is not registered!");
+  }
+  if (registeredUser && registeredUser.password === user.password) {
     await localStorage.setItem("isAuthorized", "true");
     return;
   }
