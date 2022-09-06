@@ -1,9 +1,9 @@
 import {
-  SIGNUP_USER_PENDING,
-  SIGNUP_USER_SUCCESS,
-  SIGNUP_USER_FAILURE,
-  CLEAR_SIGNUP_STATE,
-} from "../actions/signUpAction";
+  FORM_USER_PENDING,
+  FORM_USER_SUCCESS,
+  FORM_USER_FAILURE,
+  CLEAR_FORM_STATE,
+} from "../actions/formAction";
 
 let initialState = {
   isLoading: false,
@@ -11,28 +11,28 @@ let initialState = {
   error: null,
 };
 
-export const signUpReducer = (state = initialState, action) => {
+export const formReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SIGNUP_USER_PENDING:
+    case FORM_USER_PENDING:
       return {
         ...state,
         isLoading: true,
         isLoaded: false,
         error: null,
       };
-    case SIGNUP_USER_SUCCESS:
+    case FORM_USER_SUCCESS:
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
       };
-    case SIGNUP_USER_FAILURE:
+    case FORM_USER_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: action.error,
       };
-    case CLEAR_SIGNUP_STATE:
+    case CLEAR_FORM_STATE:
       return {
         ...initialState,
       };

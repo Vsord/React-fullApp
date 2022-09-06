@@ -10,7 +10,7 @@ const Form = (props) => {
   const { clearState, isSignUp, submitHandler, redirectRoute } = props;
   const dispatch = useDispatch();
 
-  const { error, isLoaded } = useSelector((state) => state.signUpReducer);
+  const { error, isLoaded } = useSelector((state) => state.formReducer);
 
   let navigate = useNavigate();
   useEffect(() => {

@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Sidebar.module.scss";
 import { NavLink, Outlet } from "react-router-dom";
+import LogOut from "../LogOut/LogOut";
 
 const Sidebar = () => {
   return (
     <>
+      <LogOut />
       <div className={styles.sidebarBlock}>
         <div className={styles.sidebarBlockInner}>
           <ul>

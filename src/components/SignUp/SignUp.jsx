@@ -1,7 +1,7 @@
 import { React } from "react";
 import Form from "../Form/Form";
 import { signUpThunk } from "../../store/thunks/thunks";
-import { clearSignUpState } from "../../store/actions/signUpAction";
+import { clearFormState } from "../../store/actions/formAction";
 import styles from "./SignUp.module.scss";
 
 const SignUp = () => {
@@ -11,7 +11,7 @@ const SignUp = () => {
       <Form
         isSignUp={true}
         submitHandler={signUpThunk}
-        clearState={clearSignUpState}
+        clearState={clearFormState}
         redirectRoute="/login"
       />
     </div>

@@ -1,12 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { signUpReducer } from "./reducers/signUpReducer";
-import { logInReducer } from "./reducers/logInReducer";
+import { formReducer } from "./reducers/formReducer";
 
 const rootReducer = combineReducers({
-  signUpReducer: signUpReducer,
-  logInReducer: logInReducer,
+  formReducer: formReducer,
 });
 
 export let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

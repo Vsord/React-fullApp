@@ -1,15 +1,14 @@
-import { registerUser, loginUser } from "../../helpers/dataStorage";
-import { signUpUserPending, signUpUserSuccess, signUpUserFailure } from "../actions/signUpAction";
-import { logInUserPending, logInUserSuccess, logInUserFailure } from "../actions/logInAction";
+import { registerUser, loginUser, logoutUser } from "../../helpers/dataStorage";
+import { formUserPending, formUserSuccess, formUserFailure } from "../actions/formAction";
 
 export const signUpThunk = (values) => {
   return async (dispatch) => {
     try {
-      dispatch(signUpUserPending());
+      dispatch(formUserPending());
       await registerUser(values);
-      dispatch(signUpUserSuccess());
+      dispatch(formUserSuccess());
     } catch (error) {
-      dispatch(signUpUserFailure(error.message));
+      dispatch(formUserFailure(error.message));
     }
   };
 };
@@ -17,11 +16,23 @@ export const signUpThunk = (values) => {
 export const logInThunk = (values) => {
   return async (dispatch) => {
     try {
-      dispatch(logInUserPending());
+      dispatch(formUserPending());
       await loginUser(values);
-      dispatch(logInUserSuccess());
+      dispatch(formUserSuccess());
     } catch (error) {
-      dispatch(logInUserFailure(error.message));
+      dispatch(formUserFailure(error.message));
+    }
+  };
+};
+
+export const logOutThunk = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(formUserPending());
+      await logoutUser();
+      dispatch(formUserSuccess());
+    } catch (error) {
+      dispatch(formUserFailure(error.message));
     }
   };
 };

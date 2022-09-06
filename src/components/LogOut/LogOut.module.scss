@@ -1,0 +1,14 @@
+.logOutButton button {
+    width: 95px;
+    height: 30px;
+    border-radius: 6px;
+    border: none;
+    background-color: blue;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.logOutButton button:active {
+    background-color: red;
+}
