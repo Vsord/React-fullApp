@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./App.module.scss";
-import Sidebar from "./components/Sidebar/Sidebar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import styles from "./App.module.scss";
 import Dashboard from "./components/Dashboard/Dashboard";
-import TableContent from "./components/TableContent/TableContent";
-import NotFound from "./components/NotFound/NotFound";
-import SignUp from "./components/SignUp/SignUp";
 import LogIn from "./components/LogIn/LogIn";
+import NotFound from "./components/NotFound/NotFound";
+import Sidebar from "./components/Sidebar/Sidebar";
+import SignUp from "./components/SignUp/SignUp";
+import TableContent from "./components/TableContent/TableContent";
 import PrivateRoute from "./utils/PrivateRoute";
 
 const App = () => {

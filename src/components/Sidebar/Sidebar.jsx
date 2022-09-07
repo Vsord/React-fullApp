@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Sidebar.module.scss";
 import { NavLink, Outlet } from "react-router-dom";
 import LogOut from "../LogOut/LogOut";
+import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
   return (

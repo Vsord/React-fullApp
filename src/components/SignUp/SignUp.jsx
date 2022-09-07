@@ -1,7 +1,7 @@
 import { React } from "react";
-import Form from "../Form/Form";
-import { signUpThunk } from "../../store/thunks/thunks";
 import { clearFormState } from "../../store/actions/formAction";
+import { signUpThunk } from "../../store/thunks/thunks";
+import Form from "../Form/Form";
 import styles from "./SignUp.module.scss";
 
 const SignUp = () => {

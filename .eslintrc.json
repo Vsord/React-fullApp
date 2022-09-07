@@ -24,11 +24,23 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "eslint-plugin-import-helpers"
     ],
     "rules": {
         "semi": ["error", "always"],
         "quotes": ["error", "double"],
-        "react/prop-types": 0
+        "react/prop-types": 0,
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "groups": [
+                    "module",
+                    "/^@shared/",
+                    ["parent", "sibling", "index"]
+                ],
+                "alphabetize": { "order": "asc", "ignoreCase": true }
+            }
+        ]
     }
 }

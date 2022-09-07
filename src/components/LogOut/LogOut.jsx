@@ -1,8 +1,8 @@
 import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOutThunk } from "../../store/thunks/thunks";
 import { useNavigate } from "react-router-dom";
 import { clearFormState } from "../../store/actions/formAction";
+import { logOutThunk } from "../../store/thunks/thunks";
 import styles from "./LogOut.module.scss";
 
 const LogOut = () => {
