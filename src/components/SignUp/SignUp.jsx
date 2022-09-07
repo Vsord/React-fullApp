@@ -9,7 +9,7 @@ const SignUp = () => {
     <div>
       <h1 className={styles.signUpTitle}>Sign Up Form</h1>
       <Form
-        isSignUp={true}
+        isSignUp
         submitHandler={signUpThunk}
         clearState={clearFormState}
         redirectRoute="/login"

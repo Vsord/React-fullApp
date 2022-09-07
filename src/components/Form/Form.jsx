@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { schema } from "../../validationSchema/validationSchema";
 import Button from "@mui/material/Button";
+import TextField from "@material-ui/core/TextField";
 import styles from "./Form.module.scss";
 
 const Form = (props) => {
@@ -37,52 +38,49 @@ const Form = (props) => {
     <>
       <form className={styles.formBlock} onSubmit={formik.handleSubmit}>
         <div className={styles.formEmail}>
-          {formik.errors.email && formik.touched.email && (
-            <div className={styles.formEmailError}>{formik.errors.email}</div>
-          )}
-          <input
+          <TextField
             id="email"
             name="email"
             type="text"
+            label="Email"
             autoComplete="off"
+            error={formik.touched.email && Boolean(formik.errors.email)}
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            helperText={formik.touched.email && formik.errors.email}
           />
-          <label htmlFor="email">Email</label>
         </div>
         <div className={styles.formPassword}>
-          {formik.errors.password && formik.touched.password && (
-            <div className={styles.formPasswordError}>{formik.errors.password}</div>
-          )}
-          <input
+          <TextField
             id="password"
             type="password"
             name="password"
             autoComplete="off"
+            label="Password"
+            error={formik.touched.password && Boolean(formik.errors.password)}
             value={formik.values.password}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            helperText={formik.touched.password && formik.errors.password}
           />
-          <label htmlFor="password">Password</label>
         </div>
         {isSignUp && (
           <div className={styles.formPasswordConfirmation}>
-            {formik.errors.passwordConfirmation && formik.touched.passwordConfirmation && (
-              <div className={styles.formPasswordConfirmationError}>
-                {formik.errors.passwordConfirmation}
-              </div>
-            )}
-            <input
+            <TextField
               id="passwordConfirmation"
               type="password"
               name="passwordConfirmation"
               autoComplete="off"
+              label="Confirm your password"
+              error={
+                formik.touched.passwordConfirmation && Boolean(formik.errors.passwordConfirmation)
+              }
               value={formik.values.passwordConfirmation}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              helperText={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation}
             />
-            <label htmlFor="passwordConfirmation">Confirm your password</label>
           </div>
         )}
         <button
@@ -98,7 +96,7 @@ const Form = (props) => {
         </button>
         {error ? <div className={styles.formUserErrorMessage}>{error}</div> : null}
       </form>
-      <div className={styles.formSignUpBlock}>
+      <div className={styles.formToggleButton}>
         <Button
           variant="contained"
           onClick={() => (isSignUp ? navigate("/login") : navigate("/signup"))}
