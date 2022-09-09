@@ -17,6 +17,9 @@ const useStyles = createUseStyles({
       left: "auto",
       right: "auto",
     },
+    position: "absolute",
+    top: "30%",
+    left: "30%",
   },
 });
 
@@ -25,7 +28,7 @@ const TableContent = () => {
   return (
     <div className={classes.tableBlock}>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 950 }} aria-label="simple table">
+        <Table sx={{ minWidth: 968 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Dessert (100g serving)</TableCell>

@@ -1,22 +1,48 @@
-a {
-    text-decoration: none;
-    color: aqua;
-    display: block;
-    margin: 20px;
-}
-
-ul {
-    padding: 0;
-    margin: 0;
-}
-
-a:hover {
-    color: blue;
-}
-
 .sidebarBlock {
-    background: linear-gradient(#141e30, #243b55);
-    width: 16%;
+    background-color: #FFF; 
+    width: 306px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-    float: left;
+
+    .sidebarBlockMenu {
+
+        .sidebarBlockTitle {
+            margin-top: 36px;
+
+            h3 {
+                margin-top: 0;
+                font-size: 26px;
+            }
+
+        }
+    }
+    
+    ul {
+        padding: 0;
+        margin: 0;
+
+        div {
+            margin-top: 43px;
+        }   
+
+            button {
+                width: 250px;
+                justify-content: flex-start;
+                color: #9197B3;
+
+            }
+
+            button:hover {
+                background-color: #5932EA;
+                color: #FFF;
+            }
+        }
+
+        a:hover {
+            color: blue;
+        }
 }

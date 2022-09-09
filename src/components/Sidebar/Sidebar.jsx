@@ -1,22 +1,76 @@
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
+import SportsFootballIcon from "@mui/icons-material/SportsFootball";
+import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
+import Button from "@mui/material/Button";
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { changeLocationPathName } from "../../utils/changeLocationPathName";
 import LogOut from "../LogOut/LogOut";
 import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
   return (
     <>
-      <LogOut />
       <div className={styles.sidebarBlock}>
-        <div className={styles.sidebarBlockInner}>
+        <div className={styles.sidebarBlockMenu}>
+          <div className={styles.sidebarBlockTitle}>
+            <DonutSmallOutlinedIcon />
+            <h3>{changeLocationPathName(location.pathname)}</h3>
+          </div>
           <ul>
-            <NavLink to="/dashboard">Dashboard</NavLink>
-            <NavLink to="/table">Table</NavLink>
-            <NavLink to="/sport">Sport</NavLink>
-            <NavLink to="/news">News</NavLink>
-            <NavLink to="/settings">Settings</NavLink>
+            <div>
+              <Button
+                variant="text"
+                startIcon={<DashboardIcon />}
+                onClick={() => navigate("/dashboard")}
+              >
+                Dashboard
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                startIcon={<TableRestaurantIcon />}
+                onClick={() => navigate("/table")}
+              >
+                Table
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                startIcon={<SportsFootballIcon />}
+                onClick={() => navigate("/sport")}
+              >
+                Sport
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                startIcon={<NewspaperIcon />}
+                onClick={() => navigate("/news")}
+              >
+                News
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                startIcon={<SettingsApplicationsIcon />}
+                onClick={() => navigate("/settings")}
+              >
+                Settings
+              </Button>
+            </div>
           </ul>
         </div>
+        <LogOut />
       </div>
       <Outlet />
     </>
