@@ -15,7 +15,6 @@ const useStyles = createUseStyles({
       right: "auto",
       left: "auto",
     },
-    width: 253,
   },
 });
 

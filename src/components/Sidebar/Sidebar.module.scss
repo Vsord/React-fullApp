@@ -3,10 +3,10 @@
     width: 306px;
     height: 100vh;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    float: left;
 
     .sidebarBlockMenu {
 

@@ -6,7 +6,7 @@ import styles from "./LogIn.module.scss";
 
 const LogIn = () => {
   return (
-    <div>
+    <div className={styles.LogInBlock}>
       <h1 className={styles.logInTitle}>Log In</h1>
       <Form submitHandler={logInThunk} redirectRoute="/" clearState={clearFormState} />
     </div>

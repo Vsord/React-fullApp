@@ -6,7 +6,7 @@ import styles from "./SignUp.module.scss";
 
 const SignUp = () => {
   return (
-    <div>
+    <div className={styles.signUpBlock}>
       <h1 className={styles.signUpTitle}>Sign Up</h1>
       <Form
         isSignUp
