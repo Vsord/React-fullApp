@@ -54,7 +54,7 @@ export const fetchThunk = () => {
           } else {
             dispatch(dataFailure("Something went wrong..."));
           }
-        }, 5000)
+        }, 1000)
       );
   };
 };

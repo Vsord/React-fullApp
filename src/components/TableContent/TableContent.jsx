@@ -1,18 +1,19 @@
 import Button from "@mui/material/Button";
-import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
+import { DataGrid, GridCellParams } from "@mui/x-data-grid";
+import { React, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useSelector } from "react-redux";
 
 const TableContent = () => {
   const data = useSelector((state) => state.fetchReducer.data);
+  const [state, setState] = useState("Active");
 
   const useStyles = createUseStyles({
     tableBlock: {
       width: "968px",
       position: "absolute",
       left: "30%",
-      top: "13%",
+      top: "8%",
       background: "#FFF",
     },
     tableTitle: {
@@ -25,6 +26,9 @@ const TableContent = () => {
     },
   });
 
+  const classes = useStyles();
+  const rows = data;
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Name", width: 160 },
@@ -36,16 +40,20 @@ const TableContent = () => {
       field: "Status",
       renderCell: () => {
         return (
-          <Button sx={{ width: "80px", height: "29px" }} variant="contained" color="secondary">
-            Active
+          <Button
+            sx={{ width: "80px", height: "29px" }}
+            variant="contained"
+            color="secondary"
+            onClick={() => {
+              setState("Inactive");
+            }}
+          >
+            {state}
           </Button>
         );
       },
     },
   ];
-
-  const rows = data;
-  const classes = useStyles();
 
   return (
     <div className={classes.tableBlock}>
