@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
-import { DataGrid, GridCellParams } from "@mui/x-data-grid";
-import { React, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useSelector } from "react-redux";
 
@@ -30,15 +30,16 @@ const TableContent = () => {
   const rows = data;
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Name", width: 160 },
-    { field: "username", headerName: "User name", width: 120 },
-    { field: "email", headerName: "Email", width: 180 },
-    { field: "phone", headerName: "Phone", width: 180 },
-    { field: "website", headerName: "Website", width: 110 },
+    { field: "id", headerName: "ID", width: 70, sortable: false },
+    { field: "name", headerName: "Name", width: 160, sortable: false },
+    { field: "username", headerName: "User name", width: 120, sortable: false },
+    { field: "email", headerName: "Email", width: 180, sortable: false },
+    { field: "phone", headerName: "Phone", width: 180, sortable: false },
+    { field: "website", headerName: "Website", width: 110, sortable: false },
     {
       field: "Status",
-      renderCell: () => {
+      sortable: false,
+      renderCell: (params) => {
         return (
           <Button
             sx={{ width: "80px", height: "29px" }}
@@ -46,6 +47,7 @@ const TableContent = () => {
             color="secondary"
             onClick={() => {
               setState("Inactive");
+              alert(params.id);
             }}
           >
             {state}
