@@ -1,5 +1,8 @@
+$sidebarLightThemeColor: #fff;
+$sidebarDarkThemeColor: #111a2a;
+
 .sidebarBlock {
-    background-color: #FFF; 
+    background-color: #FFF;
     width: 306px;
     height: 100vh;
     display: flex;
@@ -20,29 +23,53 @@
 
         }
     }
-    
+
     ul {
         padding: 0;
         margin: 0;
 
         div {
             margin-top: 43px;
-        }   
-
-            button {
-                width: 250px;
-                justify-content: flex-start;
-                color: #9197B3;
-
-            }
-
-            button:hover {
-                background-color: #5932EA;
-                color: #FFF;
-            }
         }
 
-        a:hover {
-            color: blue;
+        button {
+            width: 250px;
+            justify-content: flex-start;
+            color: #9197B3;
+
         }
+
+        button:hover {
+            background-color: #5932EA;
+            color: #FFF;
+        }
+    }
+
+    a:hover {
+        color: blue;
+    }
+}
+
+#light {
+    background-color: $sidebarLightThemeColor;
+}
+
+#dark {
+    background-color: $sidebarDarkThemeColor;
+}
+
+#light .sidebarBlockMenu .sidebarBlockTitle h3 {
+    color: black;
+}
+
+#dark .sidebarBlockMenu .sidebarBlockTitle h3 {
+    color: white;
+}
+
+#light .sidebarBlockMenu .sidebarBlockTitle .sidebarDonutIcon {
+    color: black;
+}
+
+#dark .sidebarBlockMenu .sidebarBlockTitle .sidebarDonutIcon {
+    color: white;
 }

@@ -1,12 +1,46 @@
-.App {
-    background-color: #F7F4FF;
+$bodyDarkThemeColor: #0c121c;
+$bodyLightThemeColor: #F7F4FF;
+
+
+
+.app {
+    // background-color: #F7F4FF;
     font-family: Roboto, sans-serif;
     position: relative;
     height: 100vh;
+    overflow: hidden;
+
+    .reactThemeSwitcher {
+        position: absolute;
+        top: 30px;
+        right: 90px;
+
+        .themeTitle {
+            text-align: center;
+            font-size: 21px;
+            margin: 0;
+        }
+    }
 }
 
 .error {
     transform: translate(0%, 190px);
     font-size: 45px;
     text-align: center;
+}
+
+#light {
+    background-color: $bodyLightThemeColor;
+}
+
+#dark {
+    background-color: $bodyDarkThemeColor;
+}
+
+#light .reactThemeSwitcher .themeTitle  {
+    color: black;
+}
+
+#dark .reactThemeSwitcher .themeTitle  {
+    color: white;
 }

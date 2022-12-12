@@ -13,7 +13,7 @@ const TableContent = () => {
       width: "968px",
       position: "absolute",
       left: "30%",
-      top: "8%",
+      top: "12%",
       background: "#FFF",
     },
     tableTitle: {

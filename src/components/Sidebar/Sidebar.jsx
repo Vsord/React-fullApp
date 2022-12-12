@@ -5,21 +5,23 @@ import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import SportsFootballIcon from "@mui/icons-material/SportsFootball";
 import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
 import Button from "@mui/material/Button";
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { ThemeContext } from "../../context/themeContext";
 import { changeLocationPathName } from "../../utils/changeLocationPathName";
 import LogOut from "../LogOut/LogOut";
 import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
-  let navigate = useNavigate();
-  let location = useLocation();
+  const { theme } = useContext(ThemeContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <>
-      <div className={styles.sidebarBlock}>
+      <div className={styles.sidebarBlock} id={theme ? styles.light : styles.dark}>
         <div className={styles.sidebarBlockMenu}>
           <div className={styles.sidebarBlockTitle}>
-            <DonutSmallOutlinedIcon />
+            <DonutSmallOutlinedIcon className={styles.sidebarDonutIcon} />
             <h3>{changeLocationPathName(location.pathname)}</h3>
           </div>
           <ul>

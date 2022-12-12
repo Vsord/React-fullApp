@@ -49,6 +49,7 @@ const Form = (props) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             helperText={formik.touched.email && formik.errors.email}
+            sx={{ marginTop: "10px" }}
           />
         </div>
         <div className={styles.formPassword}>
