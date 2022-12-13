@@ -38,23 +38,22 @@ export const logOutThunk = () => {
   };
 };
 
-export const fetchThunk = () => {
+export const fetchThunk = (URL) => {
   return async (dispatch) => {
     dispatch(dataPending());
-    await fetch("https://jsonplaceholder.typicode.com/users")
+    await fetch(URL)
       .then((res) => {
         if (res.status >= 200 && res.status < 300) {
           return res.json();
         }
       })
-      .then((data) =>
-        setTimeout(() => {
-          if (data) {
-            dispatch(dataSuccess(data));
-          } else {
-            dispatch(dataFailure("Something went wrong..."));
-          }
-        }, 1000)
-      );
+      .then((data) => {
+        if (data) {
+          dispatch(dataSuccess(data));
+          console.log(data);
+        } else {
+          dispatch(dataFailure("Something went wrong..."));
+        }
+      });
   };
 };

@@ -1,8 +1,8 @@
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
-import SportsFootballIcon from "@mui/icons-material/SportsFootball";
 import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
 import Button from "@mui/material/Button";
 import React, { useContext } from "react";
@@ -46,10 +46,10 @@ const Sidebar = () => {
             <div>
               <Button
                 variant="text"
-                startIcon={<SportsFootballIcon />}
-                onClick={() => navigate("/sport")}
+                startIcon={<CalendarMonthIcon />}
+                onClick={() => navigate("/calendar")}
               >
-                Sport
+                Calendar
               </Button>
             </div>
             <div>

@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import styles from "./App.module.scss";
+import EventCalendar from "./components/Calendar/EventCalendar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import LogIn from "./components/LogIn/LogIn";
+import News from "./components/News/News";
 import NotFound from "./components/NotFound/NotFound";
 import Settings from "./components/Settings/Settings";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -27,7 +29,8 @@ const App = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchThunk());
+    dispatch(fetchThunk("https://jsonplaceholder.typicode.com/users"));
+    dispatch(fetchThunk("https://dummyjson.com/posts"));
   }, [dispatch]);
 
   if (loader) {
@@ -60,6 +63,8 @@ const App = () => {
             <Route path="/" element={<Sidebar />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/table" element={<TableContent />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/calendar" element={<EventCalendar />} />
               <Route path="/settings" element={<Settings />} />
             </Route>
           </Route>
